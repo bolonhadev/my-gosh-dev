@@ -11,4 +11,4 @@
 //   )
 // }
 
-export { default as wrapRootElement } from './src/states/modules/reduxWrapper';
+export { default as wrapRootElement } from './src/states/reduxWrapper';

@@ -9,8 +9,12 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { connect } from "react-redux"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, welcome }) {
+  console.log('SEOwelcome: ')
+  console.log(welcome)
+
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -28,6 +32,9 @@ function SEO({ description, lang, meta, title }) {
   const metaDescription = description || site.siteMetadata.description
 
   return (
+    <>
+      <h1>Esse é outro componente: {welcome.type}</h1>
+    oi 2
     <Helmet
       htmlAttributes={{
         lang,
@@ -69,6 +76,7 @@ function SEO({ description, lang, meta, title }) {
         },
       ].concat(meta)}
     />
+    </>
   )
 }
 
@@ -84,5 +92,8 @@ SEO.propTypes = {
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
 }
-
-export default SEO
+const mapState = state => ({
+  welcome: state.welcome
+})
+// export default SEO
+export default connect(mapState,null)(SEO)

@@ -3,11 +3,18 @@
 
 // const store = require("./src/states")
 
+// const wrapRootElement2 = require("./src/states/reduxWrapper")
 
-// exports.wrapRootElement = ({ element }) => {
+// exports.default = ({ element }) => {
 //   return (
-//     <Provider store={store}>
+//     <wrapRootElement2>
 //       {element}
-//     </Provider>
+//     </wrapRootElement2>
 //   )
 // }
+
+
+// export { default as wrapRootElement } from './src/states/reduxWrapper';
+// exports.default 
+
+export { default as wrapRootElement } from './src/states/reduxWrapper';

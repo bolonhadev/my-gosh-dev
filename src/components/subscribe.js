@@ -3,16 +3,30 @@ import { connect } from "react-redux"
 
 // import {WelcomeDispatchContext, WelcomeStateContext} from "../context/WelcomeContextProvider"
 
-const Subscribe = (props) => {
-  console.log(props)
+const Subscribe = (welcome) => {
+  console.log('Subswelcome: ')
+  console.log(welcome)
   return(
     <>
-      <h1>{props.welcome.type}</h1>
+      {/* <p>{JSON.stringify(welcome.welcome, null, " ")}</p> */}
        
+      <h1>Esse é um componente c/ auto bool: {welcome.welcome.guest_is}</h1>
+      <h1>Esse é um componente diferente: {welcome.welcome.type}</h1>
       <button 
         type="button" 
         onClick={()=>{
-          props.dispatch({ 
+          welcome.dispatch({ 
+            type: 'CHANGE_WELCOME_GUEST_X' 
+          })
+      }}>
+        CHANGE_WELCOME_GUEST_X
+      </button>
+
+
+      <button 
+        type="button" 
+        onClick={()=>{
+          welcome.dispatch({ 
             type: 'CHANGE_WELCOME_GUEST' 
           })
       }}>
@@ -20,16 +34,17 @@ const Subscribe = (props) => {
       </button>
 
       <button type="button" onClick={()=>{
-        props.dispatch({ type: 'CHANGE_WELCOME_PENDING' })
+        welcome.dispatch({ type: 'CHANGE_WELCOME_PENDING' })
       }}>CHANGE_WELCOME_PENDING</button>
 
       <button type="button" onClick={()=>{
-        props.dispatch({ type: 'CHANGE_WELCOME_USER' })
+        welcome.dispatch({ type: 'CHANGE_WELCOME_USER' })
       }}>CHANGE_WELCOME_USER</button>
     </>
   )
 }
-
-export default connect(state => ({
+const mapState = state => ({
   welcome: state.welcome
-}), null)(Subscribe)
+})
+
+export default connect(mapState,null)(Subscribe)
