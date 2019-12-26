@@ -1,47 +1,27 @@
 const initialState = {
-  my_state_machine: {
-    guest: {
-      guest_is: true,
-      confimation_is: false,
-      user_is: false,
-      user_role: "guest",
-      girl_expression: "EXPRESSION_NEUTRAL",
-      girl_talk: "TXT_GIRL_HI",
-      panel: false,
-      editor: false,
-      tool_menu: {
-        left: true,
-        center: "WAITING_EMAIL",
-        rigth: false
-      }
-    }
+  girl_talk: {
+    TXT_GIRL_HI: 'Oi, sou a garota.',
+    TXT_GIRL_EARTH_GONE: 'Putz, a Terra já era !',
+    TXT_GIRL_LETS_START: 'Vamos começar !',
+    TXT_TALK_NOW: ''
   }
 }
 
 export default function reducer( state = initialState, action){
   const actions = {
-    CHANGE_WELCOME_GUEST: () => {
-      state.my_state_machine.guest.guest_is ^= 1
-      state.my_state_machine.guest.user_role = 'guest'
-      state.my_state_machine.guest.girl_talk = 'TXT_GIRL_HI'
-      state.my_state_machine.guest.girl_expression = 'EXPRESSION_NEUTRAL'
+    TXT_GIRL_HI: () => {
+      state.girl_talk.TXT_TALK_NOW = 'Oi, sou a garota, mesmo !'
       return { ...state }
     },
-    CHANGE_WELCOME_PENDING: () => {
-      state.my_state_machine.guest.confimation_is ^= true
-      state.my_state_machine.guest.user_role = 'pending'
-      state.my_state_machine.guest.girl_talk = 'TXT_GIRL_EARTH_GONE'
-      state.my_state_machine.guest.girl_expression = 'EXPRESSION_SCARE'
+    TXT_GIRL_EARTH_GONE: () => {
+      state.girl_talk.TXT_TALK_NOW = 'Putz, a Terra já era, mesmo !'
       return { ...state }
     },
-    CHANGE_WELCOME_USER: () => {
-      state.my_state_machine.guest.user_is ^= true
-      state.my_state_machine.guest.user_role = 'user'
-      state.my_state_machine.guest.girl_talk = 'TXT_GIRL_LETS_START'
-      state.my_state_machine.guest.girl_expression = 'EXPRESSION_HAPPY'
+    TXT_GIRL_LETS_START: () => {
+      state.girl_talk.TXT_TALK_NOW = 'Vamos começar, mesmo !'
       return { ...state }
     },
-    CHANGE_WELCOME_SIGNOUT: () => {
+    TXT_GIRL_CLEAN: () => {
       state = initialState
       return state
     },

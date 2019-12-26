@@ -1,32 +1,41 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-// import {WelcomeDispatchContext, WelcomeStateContext} from "../context/WelcomeContextProvider"
-
 const Subscribe = () => {
-  console.log('Subswelcome: ')
   const useStore = useSelector((store) => store)
   const dispatch = useDispatch((store) => store)
-  console.log(dispatch)
+  // console.log('Subswelcome: ')
+  // console.log(useStore.girl.girl_talk.TXT_TALK_NOW)
+  const myBool = useStore.welcome.my_state_machine.guest.guest_is
+  const girlString = useStore.welcome.my_state_machine.guest.girl_talk
+  const girlSay = useStore.girl.girl_talk.TXT_TALK_NOW
+  const girlExpression = useStore.welcome.my_state_machine.guest.girl_expression
   return(
     <>
-      <p>{JSON.stringify(useStore, null, " ")}</p>
+      {/* <p>{JSON.stringify(useStore, null, " ")}</p> */}
        
-      <h1>Estado c/ auto bool: {useStore.welcome.my_state_machine.guest.guest_is}</h1>
-      <h1>Esse é um componente diferente: {useStore.welcome.my_state_machine.guest.confimation_is}</h1>
+      <h5>No guest eu ligo e desligo: {myBool}</h5>
+      <h5>Meu nível de user é: {girlString}</h5>
+      <h4>Sou a garota dizendo: {girlString}</h4>
+      <h3>{girlString} quer dizer: {girlSay}</h3>
+      <h5>Minha expressão é a: {girlExpression}</h5>
       
-      <button type="button" onClick={ ()=>{ dispatch({ type: 'CHANGE_WELCOME_GUEST' }) } }>
-        GUEST
+      
+      <br />
+      <button type="button" onClick={ ()=>{ 
+        dispatch({ type: 'CHANGE_WELCOME_PENDING' }) 
+        dispatch({ type: 'TXT_GIRL_EARTH_GONE' }) 
+      }}>
+        Gravou no DB email inserido, então: PENDING
       </button>
-
-      <button type="button" onClick={ ()=>{ dispatch({ type: 'CHANGE_WELCOME_PENDING' }) }}>
-        PENDING
+      <br />
+      <button type="button" onClick={ ()=>{ 
+        dispatch({ type: 'CHANGE_WELCOME_USER' }) 
+        dispatch({ type: 'TXT_GIRL_LETS_START' }) 
+      }}>
+        O email foi confimado, logo: USER
       </button>
-
-      <button type="button" onClick={ ()=>{ dispatch({ type: 'CHANGE_WELCOME_USER' }) }}>
-        USER
-      </button>
-
+      <br />
 
       <button type="button" onClick={ ()=>{ dispatch({ type: 'CHANGE_WELCOME_SIGNOUT' }) }}>
         SIGNOUT

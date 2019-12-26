@@ -9,7 +9,7 @@ const IndexPage = () => (
   <>
     <Layout>
       <SEO title="Home" />
-      <h1>Hi peoplessss</h1>
+      {/* <h1>Hi peoplessss</h1> */}
       <Subscribe></Subscribe>
       <Link to="/page-2/">Go to page 2</Link>
     </Layout>

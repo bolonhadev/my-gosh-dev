@@ -9,12 +9,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 function SEO({ description, lang, meta, title }) {
-  console.log('SEOwelcome: ')
+  // console.log('SEOwelcome: ')
   const useStore = useSelector((store) => store)
-  console.log(useStore.welcome.my_state_machine.guest.guest_is)
+  const dispatch = useDispatch((store) => store)
+  // console.log(useStore.welcome.my_state_machine.guest.guest_is)
 
   const { site } = useStaticQuery(
     graphql`
@@ -34,8 +35,14 @@ function SEO({ description, lang, meta, title }) {
 
   return (
     <>
-      <h1>Esse é outro componente: {useStore.welcome.my_state_machine.guest.guest_is}</h1>
-    oi 2
+      {/* <h1>Esse é outro componente: {useStore.welcome.my_state_machine.guest.guest_is}</h1> */}
+      <button type="button" 
+          onClick={ ()=>{ 
+            dispatch({ type: 'CHANGE_WELCOME_GUEST' })
+            dispatch({ type: 'TXT_GIRL_HI' }) 
+      } }>
+        Carregou a página, então: GUEST
+      </button>
     <Helmet
       htmlAttributes={{
         lang,

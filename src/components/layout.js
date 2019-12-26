@@ -18,7 +18,7 @@ const Layout = ({children, welcome}) => {
   return (
     <>  
       {/* <h2>{props.welcome.type}</h2> */}
-      <h1>Esse é um componente ainda: {welcome.type}</h1>
+      {/* <h1>Esse é um componente ainda: {welcome.type}</h1> */}
       <button type="button" onClick={ () => navigate('/page-2/')} role="link" tabIndex="0">oi</button>
 
         <main>{children}</main>
