@@ -1,1 +1,3 @@
-export { default as wrapRootElement } from './src/states/reduxWrapper';
+const wrapRootElement = require("./src/states/reduxWrapper").default
+
+exports.wrapRootElement
