@@ -1,50 +1,38 @@
-import React from "react"
-import { connect } from "react-redux"
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
 // import {WelcomeDispatchContext, WelcomeStateContext} from "../context/WelcomeContextProvider"
 
-const Subscribe = (welcome) => {
+const Subscribe = () => {
   console.log('Subswelcome: ')
-  console.log(welcome)
+  const useStore = useSelector((store) => store)
+  const dispatch = useDispatch((store) => store)
+  console.log(dispatch)
   return(
     <>
-      {/* <p>{JSON.stringify(welcome.welcome, null, " ")}</p> */}
+      <p>{JSON.stringify(useStore, null, " ")}</p>
        
-      <h1>Esse é um componente c/ auto bool: {welcome.welcome.guest_is}</h1>
-      <h1>Esse é um componente diferente: {welcome.welcome.type}</h1>
-      <button 
-        type="button" 
-        onClick={()=>{
-          welcome.dispatch({ 
-            type: 'CHANGE_WELCOME_GUEST_X' 
-          })
-      }}>
-        CHANGE_WELCOME_GUEST_X
+      <h1>Estado c/ auto bool: {useStore.welcome.my_state_machine.guest.guest_is}</h1>
+      <h1>Esse é um componente diferente: {useStore.welcome.my_state_machine.guest.confimation_is}</h1>
+      
+      <button type="button" onClick={ ()=>{ dispatch({ type: 'CHANGE_WELCOME_GUEST' }) } }>
+        GUEST
+      </button>
+
+      <button type="button" onClick={ ()=>{ dispatch({ type: 'CHANGE_WELCOME_PENDING' }) }}>
+        PENDING
+      </button>
+
+      <button type="button" onClick={ ()=>{ dispatch({ type: 'CHANGE_WELCOME_USER' }) }}>
+        USER
       </button>
 
 
-      <button 
-        type="button" 
-        onClick={()=>{
-          welcome.dispatch({ 
-            type: 'CHANGE_WELCOME_GUEST' 
-          })
-      }}>
-        CHANGE_WELCOME_GUEST
+      <button type="button" onClick={ ()=>{ dispatch({ type: 'CHANGE_WELCOME_SIGNOUT' }) }}>
+        SIGNOUT
       </button>
-
-      <button type="button" onClick={()=>{
-        welcome.dispatch({ type: 'CHANGE_WELCOME_PENDING' })
-      }}>CHANGE_WELCOME_PENDING</button>
-
-      <button type="button" onClick={()=>{
-        welcome.dispatch({ type: 'CHANGE_WELCOME_USER' })
-      }}>CHANGE_WELCOME_USER</button>
     </>
   )
 }
-const mapState = state => ({
-  welcome: state.welcome
-})
 
-export default connect(mapState,null)(Subscribe)
+export default (Subscribe)

@@ -5,15 +5,16 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-import { connect } from "react-redux"
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
+import { useSelector } from 'react-redux'
 
-function SEO({ description, lang, meta, title, welcome }) {
+function SEO({ description, lang, meta, title }) {
   console.log('SEOwelcome: ')
-  console.log(welcome)
+  const useStore = useSelector((store) => store)
+  console.log(useStore.welcome.my_state_machine.guest.guest_is)
 
   const { site } = useStaticQuery(
     graphql`
@@ -33,7 +34,7 @@ function SEO({ description, lang, meta, title, welcome }) {
 
   return (
     <>
-      <h1>Esse é outro componente: {welcome.type}</h1>
+      <h1>Esse é outro componente: {useStore.welcome.my_state_machine.guest.guest_is}</h1>
     oi 2
     <Helmet
       htmlAttributes={{
@@ -92,8 +93,6 @@ SEO.propTypes = {
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
 }
-const mapState = state => ({
-  welcome: state.welcome
-})
+
 // export default SEO
-export default connect(mapState,null)(SEO)
+export default (SEO)

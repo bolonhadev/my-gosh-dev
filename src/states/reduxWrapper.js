@@ -1,10 +1,10 @@
 import React from 'react'
-import { persistStore } from "redux-persist"
-import { PersistGate } from "redux-persist/integration/react"
+import { persistStore } from 'redux-persist'
+import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import rootReducer from './rootReducer'
-import persistReducers from "./persistReducers"
+import persistReducers from './persistReducers'
 
 export default ({ element, store=createStore(persistReducers(rootReducer)), persistor=persistStore(store) }) => (
   <Provider store={store}>
@@ -12,6 +12,4 @@ export default ({ element, store=createStore(persistReducers(rootReducer)), pers
       {element}
     </PersistGate>
   </Provider>
-);
-
-// export { store, persistor }
+)

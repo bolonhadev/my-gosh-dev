@@ -1,9 +1,9 @@
-import React from "react"
-import { Link } from "gatsby"
-import { useSelector } from "react-redux"
+import React from 'react'
+import { Link } from 'gatsby'
+import { useSelector } from 'react-redux'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 const SecondPage = () => {
   const useStore = useSelector((store) => store)

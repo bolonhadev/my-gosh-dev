@@ -1,17 +1,20 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { connect } from "react-redux"
-import { navigate } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { navigate } from 'gatsby'
+// import { useSelector, useDispatch } from 'react-redux'
 
 
 // import {WelcomeStateContext} from "../context/WelcomeContextProvider"
-import "./layout.css"
+import './layout.css'
 
 const Layout = ({children, welcome}) => {
   // const state = useContext(WelcomeStateContext)
   console.log('LAYOUTwelcome: ')
   console.log(welcome)
-
+  // const dispatch = useDispatch((store) => store)
+  // dispatch({ type: 'CHANGE_WELCOME_SIGNOUT' })
+  console.log('vai')
   return (
     <>  
       {/* <h2>{props.welcome.type}</h2> */}

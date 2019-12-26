@@ -1,6 +1,6 @@
-import { combineReducers } from "redux"
+import { combineReducers } from 'redux'
 
-import welcome from "./welcome/reducer"
+import welcome from './welcome/reducer'
 
 export default combineReducers({
   welcome,
