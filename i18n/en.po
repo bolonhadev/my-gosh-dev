@@ -1,0 +1,27 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Plural-Forms: nplurals = 2; plural = (n != 1);\n"
+"Language: en\n"
+"mime-version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/components/subscribe.js:46
+msgid "Learn React"
+msgstr "Learn ReactJSs"
+
+#: src/states/Girl/reducer.js:15
+msgid "TXT_GIRL_HI"
+msgstr "Hi guys 2"
+
+#: src/states/Girl/reducer.js:19
+msgid "TXT_GIRL_EARTH_GONE"
+msgstr "Shit, earth is gone ! Viu..."
+
+#: src/states/Girl/reducer.js:23
+msgid "TXT_GIRL_LETS_START"
+msgstr "Lets start !"
+
+#: src/components/subscribe.js:31
+msgid "Switch lang"
+msgstr "Swwwwitch lang"

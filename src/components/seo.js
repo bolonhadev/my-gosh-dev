@@ -9,11 +9,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 function SEO({ description, lang, meta, title }) {
   // console.log('SEOwelcome: ')
-  const useStore = useSelector((store) => store)
+  // const useStore = useSelector((store) => store)
   const dispatch = useDispatch((store) => store)
   // console.log(useStore.welcome.my_state_machine.guest.guest_is)
 
