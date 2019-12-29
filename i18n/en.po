@@ -6,7 +6,7 @@ msgstr ""
 "mime-version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/components/subscribe.js:46
+#: src/components/subscribe.js:34
 msgid "Learn React"
 msgstr "Learn ReactJSs"
 
@@ -22,6 +22,6 @@ msgstr "Shit, earth is gone ! Viu..."
 msgid "TXT_GIRL_LETS_START"
 msgstr "Lets start !"
 
-#: src/components/subscribe.js:31
+#: src/components/subscribe.js:24
 msgid "Switch lang"
 msgstr "Swwwwitch lang"

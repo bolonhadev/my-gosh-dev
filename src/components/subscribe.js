@@ -1,29 +1,34 @@
 import React from 'react'
+import { bindActionCreators } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
-import { t } from 'ttag'
+import { _ } from 'ttag'
+import { t, jt } from 'ttag'
+
+import * as WelcomeActions from '../states/Welcome/actions'
+import * as LanguagesActions from '../states/Languages/actions'
 
 const Subscribe = () => {
 
   const useStore = useSelector((store) => store)
   const dispatch = useDispatch((store) => store)
-
+  const welcomeActions = bindActionCreators(WelcomeActions, dispatch)
+  const languagesActions = bindActionCreators(LanguagesActions, dispatch)
   const myBool = useStore.welcome.my_state_machine.guest.guest_is
   const girlString = useStore.welcome.my_state_machine.guest.girl_talk
   const girlSay = useStore.girl.girl_talk.TXT_TALK_NOW
+  // const lT = useStore.languages.my_state_machine.translations['']
   const girlExpression = useStore.welcome.my_state_machine.guest.girl_expression
-
+  
   return(
     <>
-      {/*  HEEEEEELLLLPPPPPP: ../states/Languages/reducer.js  */}
-      <h2>{ t`Switch lang`}</h2>
-      <button type="button" onClick={ ()=>{ dispatch({ type: 'CHANGE_TO_PT' }) }}>
+      <h2>{ jt`Switch lang`}</h2>
+      <h2>{ _('Switch lang')}</h2>
+      <button type="button" onClick={ ()=>{ languagesActions.changeLanguageRequest('pt',useStore) }}>
         pt
       </button>
-      <button type="button" onClick={()=>{ dispatch({ type: 'CHANGE_TO_EN' }) }}>
+      <button type="button" onClick={()=>{ languagesActions.changeLanguageRequest('en',useStore ) }}>
         en
       </button>
-      {/*  HEEEEEELLLLPPPPPP: ../states/Languages/reducer.js  */}
-
 
       <p>{t`Learn React`}</p>
       <h5>No guest eu ligo e desligo: {myBool}</h5>
@@ -35,15 +40,15 @@ const Subscribe = () => {
       
       <br />
       <button type="button" onClick={ ()=>{ 
-        dispatch({ type: 'CHANGE_WELCOME_PENDING' }) 
-        dispatch({ type: 'TXT_GIRL_EARTH_GONE' }) 
+        welcomeActions.CHANGE_WELCOME_PENDING()
+        welcomeActions.TXT_GIRL_EARTH_GONE()
       }}>
         Gravou no DB email inserido, então: PENDING
       </button>
       <br />
       <button type="button" onClick={ ()=>{ 
-        dispatch({ type: 'CHANGE_WELCOME_USER' }) 
-        dispatch({ type: 'TXT_GIRL_LETS_START' }) 
+        welcomeActions.CHANGE_WELCOME_USER()
+        welcomeActions.TXT_GIRL_LETS_START()
       }}>
         O email foi confimado, logo: USER
       </button>

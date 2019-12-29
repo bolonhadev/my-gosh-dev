@@ -2,15 +2,13 @@ import React from 'react'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import rootReducer from './rootReducer'
-import persistReducers from './persistReducers'
-// import I18n from '../components/i18n'
+import storage from './store'
 
-export default ({ element, store=createStore(persistReducers(rootReducer)), persistor=persistStore(store) }) => (
-  <Provider store={store}>
+export default ( {element, store=storage, persistor=(persistStore(store))} )=>
+  (
+    <Provider store={storage}>
     <PersistGate persistor={persistor}>
       {element}
     </PersistGate>
   </Provider>
-)
+  )
