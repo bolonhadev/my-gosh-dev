@@ -11,22 +11,19 @@ const initialState = {
 }
 
 
-export default function reducer( state = initialState, action){
+export default function reducer( state = [], action){
   const actions = {
     recSessionSuccess: () => {
       // state.my_state_machine.session = {}
       
       console.log('<<<< SESSIOOONNN >>>> ')
-      // console.log(state)
-      
-      return produce(state, draft => {
-        state.my_state_machine.session = {}
-        state.my_state_machine.session.userRole = action.paramns.userRole
-        state.my_state_machine.session.TXT_TALK_NOW = action.paramns.girlTxt
-        state.my_state_machine.session.language = action.paramns.language
-        
-        console.log(action.paramns)
-      })
+      state.userRole = action.paramns.userRole
+      state.TXT_TALK_NOW = action.paramns.girlTxt
+      state.language = action.paramns.language
+      console.log(action)
+      return {
+        ...state
+      }
     },
     DEFAULT: () => {
       return { ...state }

@@ -30,7 +30,7 @@ const Subscribe = () => {
     <>
       <h2>{ jt`Switch lang`}</h2>
       <h2>{ _('Switch lang')}</h2>
-      <button type="button" onClick={ ()=>{ sessionActions.recSessionRequest({language:{userRole: 'guest', girlTxt: girlSay, language: 'en'}}) }}>
+      <button type="button" onClick={ ()=>{ sessionActions.recSessionSuccess({userRole: 'guest', girlTxt: girlSay, language: 'en'}) }}>
         Setar sessão
       </button>
       <br /><br />
@@ -45,7 +45,7 @@ const Subscribe = () => {
       <h5>No guest eu ligo e desligo: {myBool}</h5>
       <h5>Meu nível de user é: {girlString}</h5>
       <h4>Sou a garota dizendo: {girlString}</h4>
-      <h3>{girlString} quer dizer: {girlSay}</h3>
+      <h3>{girlString} quer dizer: {useStore.session.TXT_TALK_NOW}</h3>
       <h5>Minha expressão é a: {girlExpression}</h5>
       
       
