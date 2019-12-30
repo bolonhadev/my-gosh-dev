@@ -4,8 +4,9 @@ import { TXT_GIRL_CHANGE_LANGUAGE } from '../Girl/actions'
 
 function* changeLanguage(whatLanguage){
   // console.log('MUDAR PARA::: ')
-  // console.log(whatLanguage.translationsObj.translations[''])
+  // console.log(state)
   yield put(TXT_GIRL_CHANGE_LANGUAGE(whatLanguage))
+  // yield put(TXT_GIRL_CHANGE_LANGUAGE(whatLanguage))
 }
 
 export default all([

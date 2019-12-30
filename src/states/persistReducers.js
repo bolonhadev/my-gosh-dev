@@ -5,7 +5,7 @@ export default reducers => {
   const persistedReducer = persistReducer({
     key: 'MGD',
     storage,
-    whitelist: ['welcome', 'girl', 'languages']
+    whitelist: ['welcome', 'girl', 'languages', 'session']
   }, 
     reducers
   )

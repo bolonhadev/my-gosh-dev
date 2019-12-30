@@ -6,6 +6,7 @@ import { t, jt } from 'ttag'
 
 import * as WelcomeActions from '../states/Welcome/actions'
 import * as LanguagesActions from '../states/Languages/actions'
+import * as SessionActions from '../states/Session/actions'
 
 const Subscribe = () => {
 
@@ -13,9 +14,15 @@ const Subscribe = () => {
   const dispatch = useDispatch((store) => store)
   const welcomeActions = bindActionCreators(WelcomeActions, dispatch)
   const languagesActions = bindActionCreators(LanguagesActions, dispatch)
+  const sessionActions = bindActionCreators(SessionActions, dispatch)
+  
+  const girlSay = useStore.girl.girl_talk.TXT_TALK_NOW
+  
+  
+  console.log('sessionActions')
+  console.log(useStore.session)
   const myBool = useStore.welcome.my_state_machine.guest.guest_is
   const girlString = useStore.welcome.my_state_machine.guest.girl_talk
-  const girlSay = useStore.girl.girl_talk.TXT_TALK_NOW
   // const lT = useStore.languages.my_state_machine.translations['']
   const girlExpression = useStore.welcome.my_state_machine.guest.girl_expression
   
@@ -23,6 +30,10 @@ const Subscribe = () => {
     <>
       <h2>{ jt`Switch lang`}</h2>
       <h2>{ _('Switch lang')}</h2>
+      <button type="button" onClick={ ()=>{ sessionActions.recSessionRequest({language:{userRole: 'guest', girlTxt: girlSay, language: 'en'}}) }}>
+        Setar sessão
+      </button>
+      <br /><br />
       <button type="button" onClick={ ()=>{ languagesActions.changeLanguageRequest('pt',useStore) }}>
         pt
       </button>

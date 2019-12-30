@@ -6,6 +6,13 @@ export function TXT_GIRL_CHANGE_LANGUAGE(language,jsonLanguage){
   }
 }
 
+export function TXT_TALK_NOW(language,jsonLanguage){
+  return{
+    type: 'TXT_TALK_NOW',
+    language
+  }
+}
+
 export function TXT_GIRL_HI(language,jsonLanguage){
   return{
     type: 'TXT_GIRL_HI',
