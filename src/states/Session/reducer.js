@@ -1,14 +1,14 @@
-import produce from 'immer'
+// import produce from 'immer'
 
-const initialState = {
-  my_state_machine: {
-    session: {
-      userRole: 'CHANGE_WELCOME_GUEST',
-      TXT_TALK_NOW: 'TXT_GIRL_HI',
-      language: 'pt'
-    }
-  }
-}
+// const initialState = {
+//   my_state_machine: {
+//     session: {
+//       userRole: 'CHANGE_WELCOME_GUEST',
+//       TXT_TALK_NOW: 'TXT_GIRL_HI',
+//       language: 'pt'
+//     }
+//   }
+// }
 
 
 export default function reducer( state = [], action){
